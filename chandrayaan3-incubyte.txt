@@ -1,0 +1,94 @@
+direction_2d:
+	N, S, E, W
+
+direction_z:
+	Flat (.) -> shuttle facing in any direction (N/S/W/E) on the 2D Galactic plane
+	Up (^) -> shuttle facing up
+	Down (V) -> shuttle facing down
+
+And the following is the self explanatory pseudo code:
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+when instruction -> Go LEFT
+
+	if direction_z == Flat(.)
+		//[Flat, direction_2d] ->
+
+		[Flat, N] -> [Flat, W]
+		[Flat, S] -> [Flat, E]
+		[Flat, E] -> [Flat, N]
+		[Flat, W] -> [Flat, S]
+	
+	if direction_z == Up(^)
+		//[Up, direction_2d] ->
+
+		[Up, N] -> [Flat, W]
+		[Up, S] -> [Flat, E]
+		[Up, E] -> [Flat, N]
+		[Up, W] -> [Flat, S]
+
+	if direction_z == Down(^)
+		//[Down, direction_2d] ->
+
+		[Down, N] -> [Flat, W]
+		[Down, S] -> [Flat, E]
+		[Down, E] -> [Flat, N]
+		[Down, W] -> [Flat, S]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+when instruction -> Go RIGHT
+
+	if direction_z == Flat(.)
+		//[Flat, direction_2d] ->
+
+		[Flat, N] -> [Flat, E]
+		[Flat, S] -> [Flat, W]
+		[Flat, E] -> [Flat, S]
+		[Flat, W] -> [Flat, N]
+	
+	if direction_z == Up(^)
+		//[Up, direction_2d] ->
+
+		[Up, N] -> [Flat, E]
+		[Up, S] -> [Flat, W]
+		[Up, E] -> [Flat, S]
+		[Up, W] -> [Flat, N]
+
+	if direction_z == Down(^)
+		//[Down, direction_2d] ->
+
+		[Down, N] -> [Flat, E]
+		[Down, S] -> [Flat, W]
+		[Down, E] -> [Flat, S]
+		[Down, W] -> [Flat, N]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+when instruction -> Go UP
+
+	if direction_z == Flat(.)
+		//[Flat, direction_2d] ->
+
+		[Flat, W] -> [Up, W]
+		[Flat, S] -> [Up, W]
+		[Flat, E] -> [Up, W]
+		[Flat, W] -> [Up, W]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+when instruction -> Go DOWN
+
+	if direction_z == Flat(.)
+		//[Flat, direction_2d] ->
+
+		[Flat, N] -> [Down, N]
+		[Flat, S] -> [Down, S]
+		[Flat, E] -> [Down, E]
+		[Flat, W] -> [Down, W]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+--It is very easy to implement and test this code.
+--If you still need the crude version of it, I can forward it or let me know if you can give me more time so that I can work on the code
